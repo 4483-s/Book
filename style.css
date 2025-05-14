@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  align-items: center;
+}
+h1 {
+  margin: 0.3em 0 1em;
+  font-size: 4rem;
+  /* text-align: center; */
+  flex: 0;
+}
+.input-bar {
+  flex: 0;
+}
+.list {
+  flex: 1;
+}
+.list > * {
+  display: flex;
+}
+.list > div:nth-child(2n-1) {
+  background-color: green;
+}
