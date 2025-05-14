@@ -1,3 +1,13 @@
+const addButton = document.querySelector(".add");
+addButton.addEventListener("click", function () {
+  const title = document.querySelector("#title").value;
+  const author = document.querySelector("#author").value;
+  let pages = document.querySelector("#pages").value;
+  pages = +pages;
+  addBookToLibrary(title, author, pages, read);
+  console.log(myLibrary);
+});
+const myLibrary = [];
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -8,7 +18,8 @@ function Book(title, author, pages, read) {
       this.read ? "already read" : "not read yet"
     }`;
   };
+  this.id = crypto.randomUUID();
 }
-
-const Demian = new Book("Demian", "unknown", 255, true);
-console.log(Demian.info());
+function addBookToLibrary(title, author, pages, read) {
+  myLibrary.push(new Book(title, author, pages, read));
+}
