@@ -45,10 +45,10 @@ addButton.addEventListener("click", function () {
   });
   //
   nText.textContent = i + 1;
-  titleText.textContent = myLibrary[i].title;
-  authorText.textContent = myLibrary[i].author;
-  pagesText.textContent = myLibrary[i].pages;
-  readText.textContent = myLibrary[i].read ? "Read" : "Not Read";
+  titleText.textContent = title;
+  authorText.textContent = author;
+  pagesText.textContent = pages;
+  readText.textContent = read ? "Read" : "Not Read";
   id.textContent = myLibrary[i].id;
   id.setAttribute("class", "id");
   //
