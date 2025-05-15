@@ -14,12 +14,27 @@ h1 {
 .input-bar {
   flex: 0;
 }
-.list {
-  flex: 1;
+table {
+  width: 100vw;
 }
-.list > * {
-  display: flex;
+tr {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: left;
+  align-items: center;
 }
-.list > div:nth-child(2n-1) {
-  background-color: green;
+tbody > tr:nth-child(2n-1) {
+  background-color: rgb(107, 77, 82);
+}
+
+thead tr {
+  margin: 1em 0;
+}
+tbody tr {
+  margin: 5px;
+}
+.id {
+  font-size: 0.6rem;
+  overflow-wrap: anywhere;
+  /* min-width: 200px; */
 }

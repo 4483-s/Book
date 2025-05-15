@@ -14,21 +14,34 @@
   <body>
     <h1 class="h1">Library</h1>
     <div class="input-bar">
-      <form>
-        <label for="book-name">Title: </label
-        ><input type="text" name="title" id="title" required />
-        <label for="author">Author: </label
-        ><input type="text" name="author" id="author" required />
-        <label for="pages">Pages: </label
-        ><input type="number" name="pages" id="pages" required />
-        <select name="read" id="read">
-          <option value="true">Read</option>
-          <option value="">Not Read</option>
-        </select>
-        <button class="add">Add Book</button>
-      </form>
+      <label for="book-name">Title: </label
+      ><input type="text" name="title" id="title" required />
+      <label for="author">Author: </label
+      ><input type="text" name="author" id="author" required />
+      <label for="pages">Pages: </label
+      ><input type="number" name="pages" id="pages" required />
+      <select name="read" id="read">
+        <option value="true">Read</option>
+        <option value="">Not Read</option>
+      </select>
+      <button class="add">Add Book</button>
     </div>
-    <div class="list"></div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>N</th>
+            <th>Title</th>
+            <th>Author(s)</th>
+            <th>Pages</th>
+            <th>Toggle Status</th>
+            <th>ID</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody class="list"></tbody>
+      </table>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
