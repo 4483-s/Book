@@ -1,6 +1,7 @@
 let myLibrary = [];
 const addButton = document.querySelector(".add");
 const listSection = document.querySelector(".list");
+//add-book button function
 addButton.addEventListener("click", function () {
   const title = document.querySelector("#title").value;
   const author = document.querySelector("#author").value;
@@ -8,10 +9,11 @@ addButton.addEventListener("click", function () {
   const read = Boolean(document.querySelector("#read").value);
   //
   if (!title || !author || !pages) {
-    alert("please all the blanks");
+    alert("please fill the blanks");
     return;
   }
   addBookToLibrary(title, author, pages, read);
+  showBookNumber();
   //
   const readCell = document.createElement("div");
   const rmCell = document.createElement("div");
@@ -19,6 +21,7 @@ addButton.addEventListener("click", function () {
   const aBook = document.createElement("tr");
 
   const nText = document.createElement("td");
+  nText.classList.add("digit");
   const titleText = document.createElement("td");
   const authorText = document.createElement("td");
   const pagesText = document.createElement("td");
@@ -32,10 +35,13 @@ addButton.addEventListener("click", function () {
     readText.textContent =
       readText.textContent === "Read" ? "Not Read" : "Read";
   });
+  //
   rmBtn.textContent = "Remove";
   rmBtn.addEventListener("click", function () {
     aBook.remove();
-    myLibrary = myLibrary.filter((a, j) => j !== i);
+    showBookNumber();
+    myLibrary = myLibrary.filter((v) => v.id !== id.textContent);
+    console.log(myLibrary);
   });
   //
   nText.textContent = i + 1;
@@ -49,7 +55,9 @@ addButton.addEventListener("click", function () {
 
   aBook.append(nText, titleText, authorText, pagesText, readCell, id, rmCell);
   listSection.append(aBook);
+  console.log(myLibrary);
 });
+//add-book function ends, book constructor starts
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -62,6 +70,12 @@ function Book(title, author, pages, read) {
   };
   this.id = crypto.randomUUID();
 }
+//book constructor ends
 function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
+}
+function showBookNumber() {
+  const digits = document.querySelectorAll(".digit");
+
+  digits.forEach((v, i) => (v.textContent = i + 1));
 }
