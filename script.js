@@ -25,16 +25,13 @@ addButton.addEventListener("click", function () {
   const titleText = document.createElement("td");
   const authorText = document.createElement("td");
   const pagesText = document.createElement("td");
-  const readText = document.createElement("button");
+  const readBtn = document.createElement("button");
   const id = document.createElement("td");
   const rmBtn = document.createElement("button");
-  readCell.append(readText);
+  readCell.append(readBtn);
   rmCell.append(rmBtn);
   //toggle reading status
-  readText.addEventListener("click", function () {
-    readText.textContent =
-      readText.textContent === "Read" ? "Not Read" : "Read";
-  });
+  readBtn.addEventListener("click", function () {});
   //
   rmBtn.textContent = "Remove";
   rmBtn.addEventListener("click", function () {
@@ -48,7 +45,7 @@ addButton.addEventListener("click", function () {
   titleText.textContent = title;
   authorText.textContent = author;
   pagesText.textContent = pages;
-  readText.textContent = read ? "Read" : "Not Read";
+  readBtn.textContent = read ? "Read" : "Not Read";
   id.textContent = myLibrary[i].id;
   id.setAttribute("class", "id");
   //
