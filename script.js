@@ -26,15 +26,12 @@ addButton.addEventListener("click", function () {
   const author = document.querySelector("#author").value;
   const pages = +document.querySelector("#pages").value;
   const read = Boolean(document.querySelector("#read").value);
-
   //
   if (!title || !author || !pages) {
     alert("please fill the blanks");
     return;
   }
   addBookToLibrary(title, author, pages, read);
-
-  //
   const aBook = document.createElement("tr");
   const readCell = document.createElement("div");
   const rmCell = document.createElement("div");
