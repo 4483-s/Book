@@ -1,4 +1,4 @@
-let myLibrary = [];
+const myLibrary = [];
 const addButton = document.querySelector(".add");
 const listSection = document.querySelector(".list");
 function Book(title, author, pages, read) {
@@ -6,13 +6,13 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${
-      this.read ? "already read" : "not read yet"
-    }`;
-  };
   this.id = crypto.randomUUID();
 }
+Book.prototype.info = function () {
+  return `${this.title} by ${this.author}, ${this.pages} pages, ${
+    this.read ? "already read" : "not read yet"
+  }`;
+};
 function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
@@ -58,7 +58,10 @@ addButton.addEventListener("click", function () {
   rmBtn.addEventListener("click", function () {
     aBook.remove();
     showBookNumber();
-    myLibrary = myLibrary.filter((v) => v.id !== idCell.textContent);
+    myLibrary.splice(
+      myLibrary.findIndex((v) => v.id === id),
+      1
+    );
     console.log(myLibrary);
   });
   // nCell.textContent = i + 1;
